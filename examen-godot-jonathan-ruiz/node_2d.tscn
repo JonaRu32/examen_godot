@@ -1,0 +1,62 @@
+[gd_scene format=3 uid="uid://bul5xdkxqrxpf"]
+
+[ext_resource type="Script" uid="uid://v2rjxipuh6qj" path="res://jugador.gd" id="1_0e48y"]
+[ext_resource type="Texture2D" uid="uid://b7ig0qah3ggoi" path="res://icon.svg" id="1_wtcfe"]
+[ext_resource type="Script" uid="uid://bwjai737khv6u" path="res://enemigo.gd" id="3_epypp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aui74"]
+size = Vector2(135, 129.99997)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lfkbx"]
+size = Vector2(135, 129)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vicex"]
+size = Vector2(135.00002, 130.00005)
+
+[node name="Node2D" type="Node2D" unique_id=1638653345]
+
+[node name="Jugador" type="CharacterBody2D" parent="." unique_id=727181632]
+position = Vector2(-96.06454, -167.03479)
+scale = Vector2(0.2, 0.2)
+script = ExtResource("1_0e48y")
+
+[node name="Sprite2D" type="Sprite2D" parent="Jugador" unique_id=1763830782]
+texture = ExtResource("1_wtcfe")
+
+[node name="Camera2D" type="Camera2D" parent="Jugador" unique_id=2122806278]
+zoom = Vector2(3, 3)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Jugador" unique_id=431373711]
+position = Vector2(2.0590515, -0.32702637)
+scale = Vector2(0.9999998, 0.9999998)
+shape = SubResource("RectangleShape2D_aui74")
+
+[node name="Plataforma" type="StaticBody2D" parent="." unique_id=1582048680]
+scale = Vector2(2, 2)
+
+[node name="Sprite2D" type="Sprite2D" parent="Plataforma" unique_id=1817124003]
+texture = ExtResource("1_wtcfe")
+
+[node name="Jugador" type="CollisionShape2D" parent="Plataforma" unique_id=978786617]
+position = Vector2(-1.5, 0.5)
+shape = SubResource("RectangleShape2D_lfkbx")
+
+[node name="Enemigo" type="CharacterBody2D" parent="." unique_id=1808751482]
+position = Vector2(76.26876, -167.76813)
+scale = Vector2(0.2, 0.2)
+script = ExtResource("3_epypp")
+
+[node name="Sprite2D" type="Sprite2D" parent="Enemigo" unique_id=1742344751]
+texture = ExtResource("1_wtcfe")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemigo" unique_id=1243216641]
+position = Vector2(1.6137695, -1.2740479)
+scale = Vector2(0.9999998, 0.9999998)
+shape = SubResource("RectangleShape2D_vicex")
+
+[node name="RayCast2D" type="RayCast2D" parent="Enemigo" unique_id=115377868]
+target_position = Vector2(-136.34381, -1.1593628)
+
+[node name="Area2D" type="Area2D" parent="Enemigo" unique_id=1028921839]
+
+[node name="Area2D2" type="Area2D" parent="Enemigo" unique_id=1150912933]
